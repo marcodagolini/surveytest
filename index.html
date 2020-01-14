@@ -25,9 +25,12 @@
  
 $(document).ready(function() {
 	
+	var myURL = window.location.href;
+	var customer = myURL.searchParams.get("customer");
+	
 	window.VocSignal_SendEvent('SetParameters', {
 		apiUrl: 'https://survey.sandsiv.com/',
-		customerId: 'yftugih',
+		customerId: customer,
 		language: 'en',
 		surveyId: 370,
 		metadata: {
