@@ -27,8 +27,11 @@ $(document).ready(function() {
 	var myURL = window.location.href;
 	console.log(myURL);
 	var newURL = new URL(myURL);
+	var now = Date.now();
 	var customer = newURL.searchParams.get("customer");
+	customer = customer + now;
 	console.log(customer);
+	
 	
 	window.VocSignal_SendEvent('SetParameters', {
 		apiUrl: 'https://survey.sandsiv.com/',
