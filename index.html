@@ -26,14 +26,14 @@
  
 $(document).ready(function() {
 	
-	function popup(setupParam){
+	function popup(){
 		window.VocSignal_SendEvent('PopupSurvey');
 	}
 	
-	function setupParam(){
+	function setupParam(func){
 		window.VocSignal_SendEvent('SetParameters', {
 			apiUrl: 'https://survey.sandsiv.com/',
-			customerId: 'tfgyuhioj',
+			customerId: 'tdrfyguhijo',
 			language: 'en',
 			surveyId: 370,
 			metadata: {
@@ -41,10 +41,11 @@ $(document).ready(function() {
 				'metadata_name2': 'metadata_value2'
 			}
 		});
+		func();
 	}
 
 
-	popup(callback);
+	setupParam(popup);
 	
 
 	
