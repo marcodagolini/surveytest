@@ -26,28 +26,24 @@
  
 $(document).ready(function() {
 	
+	window.VocSignal_SendEvent('SetParameters', {
+		apiUrl: 'https://survey.sandsiv.com/',
+		customerId: 'tdrfyguhijo',
+		language: 'en',
+		surveyId: 370,
+		metadata: {
+			'metadata_name1': 'metadata_value1',
+			'metadata_name2': 'metadata_value2'
+		}
+	});
+	
 	function popup(){
 		window.VocSignal_SendEvent('PopupSurvey');
 	}
 	
-	function setupParam(func){
-		window.VocSignal_SendEvent('SetParameters', {
-			apiUrl: 'https://survey.sandsiv.com/',
-			customerId: 'tdrfyguhijo',
-			language: 'en',
-			surveyId: 370,
-			metadata: {
-				'metadata_name1': 'metadata_value1',
-				'metadata_name2': 'metadata_value2'
-			}
-		});
-		func();
-	}
-
-
-	setupParam(popup);
+	window.VocSignal_ListenEvent('SetParametersCallback', popup);
 	
-
+	
 	
   
 
